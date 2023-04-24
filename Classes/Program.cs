@@ -1,59 +1,12 @@
-﻿using System;
-
-/*
- * Задание 1
-Напишите метод, который отображает квадрат из 
-некоторого символа. Метод принимает в качестве параметра: длину стороны квадрата, символ.
-
- * Задание 2
-Напишите метод, который проверяет является ли 
-переданное число «палиндромом». Число передаётся в 
-качестве параметра. Если число палиндром нужно вернуть из метода true, иначе false.
-Палиндром — число, которое читается одинаково как 
-справа налево, так и слева направо. Например:
-1221 — палиндром;
-3443 — палиндром;
-7854 — не палиндром.
-
- * Задание 3
-Напишите метод, фильтрующий массив на основании 
-переданных параметров. Метод принимает параметры: 
-оригинальный_массив, массив_с_данными_для_фильтрации.
-Метод возвращает оригинальный массив без элементов, которые есть в массиве для фильтрации.
-Например:
-1 2 6 -1 88 7 6 — оригинальный массив;
-6 88 7 — массив для фильтрации;
-1 2 -1 — результат работы метода.
-
- * Задание 4
-Создайте класс «Веб-сайт». Необходимо хранить в 
-полях класса: название сайта, путь к сайту, описание 
-сайта, ip адрес сайта. Реализуйте методы класса для ввода 
-данных, вывода данных, реализуйте доступ к отдельным 
-полям через методы класса. 
-
- * Задание 5
-Создайте класс «Журнал». Необходимо хранить в 
-полях класса: название журнала, год основания, описание журнала, контактный телефон, контактный e-mail. 
-Реализуйте методы класса для ввода данных, вывода 
-данных, реализуйте доступ к отдельным полям через 
-методы класса.
-
- * Задание 6
-Создайте класс «Магазин». Необходимо хранить в 
-полях класса: название магазина, адрес, описание профиля магазина, контактный телефон, контактный e-mail. 
-Реализуйте методы класса для ввода данных, вывода 
-данных, реализуйте доступ к отдельным полям через 
-методы класса.
-*/
-
-
-using System.Globalization;
-
-namespace Classes
+﻿namespace Classes
 {
     internal class Program
     {
+        /*
+        * Задание 1
+        Напишите метод, который отображает квадрат из некоторого символа. 
+        Метод принимает в качестве параметра: длину стороны квадрата, символ.
+        */
         static void Function1()
         {
             char symbol;
@@ -77,7 +30,7 @@ namespace Classes
             for (int i = 0; i < length - 2; ++i) // вывод внутренних строк
             { 
                 Console.Write(symbol);
-                for (int l = 0; l < (length * 2) - 3; ++l)
+                for (int l = 0; l < (length * 2) - 3; ++l) // тут, в условии цкила for, поиграться пришлось, чтобы квадарат +- ровным выводился
                 {
                     Console.Write(" ");
                 }
@@ -91,7 +44,15 @@ namespace Classes
         }
 
 
-
+        /*
+        * Задание 2
+        Напишите метод, который проверяет является ли переданное число «палиндромом». 
+        Число передаётся в качестве параметра. Если число палиндром нужно вернуть из метода true, иначе false.
+        Палиндром — число, которое читается одинаково как справа налево, так и слева направо. Например:
+        1221 — палиндром;
+        3443 — палиндром;
+        7854 — не палиндром.
+         */
         static bool Function2()
         {
             string number;
@@ -112,7 +73,15 @@ namespace Classes
         }
 
 
-
+        /*
+        * Задание 3
+        Напишите метод, фильтрующий массив на основании переданных параметров. 
+        Метод принимает параметры: оригинальный_массив, массив_с_данными_для_фильтрации.
+        Метод возвращает оригинальный массив без элементов, которые есть в массиве для фильтрации. Например:
+        1 2 6 -1 88 7 6 — оригинальный массив;
+        6 88 7 — массив для фильтрации;
+        1 2 -1 — результат работы метода.
+         */
         static void Function3(int[] array, int[] array_filter)
         {
             int[] new_array = new int[array.Length];
@@ -155,24 +124,287 @@ namespace Classes
         }
 
 
-
-        static void Function4()
+        /*
+        * Задание 4
+        Создайте класс «Веб-сайт». Необходимо хранить в 
+        полях класса: название сайта, путь к сайту, описание 
+        сайта, ip адрес сайта. Реализуйте методы класса для ввода 
+        данных, вывода данных, реализуйте доступ к отдельным 
+        полям через методы класса. 
+        */
+        class WebSite
         {
+            private string name;
+            private string url;
+            private string description;
+            private string ip;
 
+            public WebSite() : this("new website", "https://new.website.com/", "just new website", "00.00.00.00") { }
+            public WebSite(string name, string url, string description, string ip)
+            {
+                this.name = name;
+                this.url = url;
+                this.description = description;
+                this.ip = ip;
+            }
+
+
+
+            public void SetAll(string name, string url, string description, string ip)
+            {
+                    this.name = name;
+                    this.url = url;
+                    this.description = description;
+                    this.ip = ip;
+            }
+
+            public void SetName(string name)
+            {
+                this.name = name;
+            }
+
+            public void SetUrl(string url)
+            {
+                this.url = url;
+            }
+
+            public void SetDescription(string description)
+            {
+                this.description = description;
+            }
+
+            public void SetIp(string ip)
+            {
+                this.ip = ip;
+            }
+
+
+
+            public void GetAll()
+            {
+                Console.WriteLine($"Имя: {this.name}");
+                Console.WriteLine($"URL: {this.url}");
+                Console.WriteLine($"Описание: {this.description}");
+                Console.WriteLine($"IP: {this.ip}");
+                Console.WriteLine();
+            }
+
+            public string GetName()
+            {
+                return this.name;
+            }
+
+            public string GetUrl()
+            {
+                return this.url;
+            }
+
+            public string GetDescription()
+            {
+                return this.description;
+            }
+
+            public string GetIp()
+            {
+                return this.ip;
+            }
         }
 
 
 
-        static void Function5()
-        {
+        /*
+        * Задание 5
+        Создайте класс «Журнал». 
+        Необходимо хранить в полях класса: название журнала, год основания, описание журнала, контактный телефон, контактный e-mail. 
+        Реализуйте методы класса для ввода данных, вывода данных, реализуйте доступ к отдельным полям через методы класса.
+        */
 
+        class Journal
+        {
+            private string name;
+            private int yearFoundation;
+            private string description;
+            private int telephone;
+            private string email;
+
+
+            public Journal() : this("new journal", 1111, "just new journal", 111000, "newjournal@email.com") { }
+            public Journal(string name, int yearFoundation, string description, int telephone, string email)
+            {
+                this.name = name;
+                this.yearFoundation = yearFoundation;
+                this.description = description;
+                this.telephone = telephone;
+                this.email = email;
+            }
+
+
+
+
+            public void SetAll(string name, int yearFoundation, string description, int telephone, string email)
+            {
+                this.name = name;
+                this.yearFoundation = yearFoundation;
+                this.description = description;
+                this.telephone = telephone;
+                this.email = email;
+            }
+
+            public string SetName
+            {
+                set
+                {
+                    this.name = value;
+                }
+            }
+
+            public int SetYearFoundation
+            {
+                set
+                { 
+                    this.yearFoundation = value;
+                }
+            }
+
+            public string SetDescription
+            {
+                set
+                {
+                    this.description = value;
+                }
+            }
+
+            public int SetTelephone
+            {
+                set
+                {
+                    this.telephone = value;
+                }
+            }
+
+            public string SetEmail
+            {
+                set
+                {
+                    this.email = value;
+                }
+            }
+
+
+
+
+            public void GetAll()
+            {
+                Console.WriteLine($"Название: {this.name}");
+                Console.WriteLine($"Год основания: {this.yearFoundation}");
+                Console.WriteLine($"Описание: {this.description}");
+                Console.WriteLine($"Номер телефона: {this.telephone}");
+                Console.WriteLine($"Электронная почта: {this.email}");
+                Console.WriteLine();
+            }
+
+            public string GetName
+            {
+                get
+                {
+                    return this.name;
+                }
+            }
+
+            public int GetYearFoundation
+            {
+                get
+                {
+                    return this.yearFoundation;
+                }
+            }
+
+            public string GetDescription
+            {
+                get
+                {
+                    return this.description;
+                }
+            }
+
+            public int GetTelephone
+            {
+                get
+                {
+                    return this.telephone;
+                }
+            }
+
+            public string GetEmail
+            {
+                get
+                {
+                    return this.email;
+                }
+            }
         }
 
 
 
-        static void Function6()
+        /*
+         * Задание 6
+        Создайте класс «Магазин». 
+        Необходимо хранить в полях класса: название магазина, адрес, описание профиля магазина, контактный телефон, контактный e-mail. 
+        Реализуйте методы класса для ввода данных, вывода данных, реализуйте доступ к отдельным полям через методы класса.
+        */
+        class Shop
         {
+            private string name;
+            private string address;
+            private string description;
+            private int telephone;
+            private string email;
 
+
+            public Shop() : this("new shop", "city, st. street, 00", "just new shop", 111000, "newshop@email.com") { }
+            public Shop(string name, string address, string description, int telephone, string email)
+            {
+                this.name = name;
+                this.address = address;
+                this.description = description;
+                this.telephone = telephone;
+                this.email = email;
+            }
+
+
+
+            public void SetAll(string name, string address, string description, int telephone, string email)
+            {
+                this.name = name;
+                this.address = address;
+                this.description = description;
+                this.telephone = telephone;
+                this.email = email;
+            }
+
+            public string SetName { set { this.name = value; } }
+            public string SetAddress { set { this.address = value; } }
+            public string SetDescription { set { this.description = value; } }
+            public int SetTelephone { set { this.telephone = value; } }
+            public string SetEmail { set { this.email = value; } }
+
+
+
+            public void GetAll()
+            {
+                Console.WriteLine($"Название: {this.GetName}");
+                Console.WriteLine($"Адрес: {this.GetAddress}");
+                Console.WriteLine($"Описание: {this.GetDescription}");
+                Console.WriteLine($"Номер телефона: {this.GetTelephone}");
+                Console.WriteLine($"Электронная почта: {this.GetEmail}");
+                Console.WriteLine();
+            }
+
+            public string GetName { get { return this.name; } }
+            public string GetAddress { get { return this.address; } }
+            public string GetDescription { get { return this.description; } }
+            public int GetTelephone { get { return this.telephone; } }
+            public string GetEmail { get { return this.email; } }
         }
 
 
@@ -180,13 +412,128 @@ namespace Classes
 
         static void Main()
         {
+        // ЗАДАНИЕ 1
             //Function1();
-            //if (Function2() == true) { Console.WriteLine("Введённое число является палиндромом"); } else { Console.WriteLine("Введённое число не является палиндромом"); };
-            int[] array = { 1, 2, 3, 4, 5 }; int[] array_filter = { 2, 4 }; Function3(array, array_filter);
-            Function4();
-            Function5();
-            Function6();
 
+
+        // ЗАДАНИЕ 2
+            //if (Function2() == true) { Console.WriteLine("Введённое число является палиндромом"); } else { Console.WriteLine("Введённое число не является палиндромом"); };
+
+
+        // ЗАДАНИЕ 3
+            //int[] array = { 1, 2, 3, 4, 5 }; int[] array_filter = { 2, 4 }; Function3(array, array_filter);
+
+
+        // ЗАДАНИЕ 4                              
+            Console.WriteLine("\n///////////////////////////////////"); Console.WriteLine("//            ЗАДАНИЕ 4          //"); Console.WriteLine("///////////////////////////////////\n");
+
+            //
+            Console.WriteLine($"ДЕФОЛТНЫЙ КОНСТРУКТОР: ");
+
+            WebSite website = new WebSite();
+            website.GetAll();
+
+            //
+            Console.WriteLine($"МЕТОД SETALL: ");
+
+            website.SetAll("SetAll", "https://setall/", "testing SetAll", "01.01.01.01");
+            website.GetAll();
+
+            //
+            Console.WriteLine($"ОТДЕЛЬНЫЕ МЕТОДЫ SET: ");
+
+            website.SetName("SetName");
+            website.SetUrl("SetURL");
+            website.SetDescription("SetDescription");
+            website.SetIp("02.02.02.02");
+            website.GetAll();
+
+            //
+            Console.WriteLine("ОТДЕЛЬНЫЕ МЕТОДЫ GET: ");
+
+            website.SetAll("Get", "https://get/", "testing Get", "03.03.03.03");
+
+            Console.WriteLine($"Имя: {website.GetName()}");
+            Console.WriteLine($"URL: {website.GetUrl()}");
+            Console.WriteLine($"Описание: {website.GetDescription()}");
+            Console.WriteLine($"IP: {website.GetIp()}");
+            Console.WriteLine();
+
+
+        // ЗАДАНИЕ 5
+            Console.WriteLine("\n///////////////////////////////////"); Console.WriteLine("//            ЗАДАНИЕ 5          //"); Console.WriteLine("///////////////////////////////////\n");
+
+            //
+            Console.WriteLine("ДЕФОЛТНЫЙ КОНСТРУКТОР: ");
+
+            Journal journal = new Journal();
+            journal.GetAll();
+
+            //
+            Console.WriteLine($"МЕТОД SETALL: ");
+
+            journal.SetAll("SetAll", 2222, "testing SetAll", 222000, "setall@set.all");
+            journal.GetAll();
+
+            //
+            Console.WriteLine($"ОТДЕЛЬНЫЕ МЕТОДЫ SET: ");
+
+            journal.SetName = "SetName";
+            journal.SetYearFoundation = 3333;
+            journal.SetDescription = "SetDescription";
+            journal.SetTelephone = 333000;
+            journal.SetEmail = "setemail@set.email";
+            journal.GetAll();
+
+            //
+            Console.WriteLine("ОТДЕЛЬНЫЕ МЕТОДЫ GET: ");
+
+            journal.SetAll("Get", 4444, "testing Get", 444000, "get@get.get");
+
+            Console.WriteLine($"Название: {journal.GetName}");
+            Console.WriteLine($"Год основания: {journal.GetYearFoundation}");
+            Console.WriteLine($"Описание: {journal.GetDescription}");
+            Console.WriteLine($"Номер телефона: {journal.GetTelephone}");
+            Console.WriteLine($"Электронная почта: {journal.GetEmail}");
+            Console.WriteLine();
+
+
+        // ЗАДАНИЕ 6
+            Console.WriteLine("\n///////////////////////////////////"); Console.WriteLine("//            ЗАДАНИЕ 6          //"); Console.WriteLine("///////////////////////////////////\n");
+
+            //
+            Console.WriteLine($"ДЕФОЛТНЫЙ КОНСТРУКТОР: ");
+
+            Shop shop = new Shop();
+            shop.GetAll();
+
+            //
+            Console.WriteLine($"МЕТОД SETALL: ");
+
+            shop.SetAll("SetAll", "SetAll, st. SetAll, 02", "testing SetAll", 222000, "setall@set.all");
+            shop.GetAll();
+
+            //
+            Console.WriteLine($"ОТДЕЛЬНЫЕ МЕТОДЫ SET: ");
+
+            shop.SetName = "SetName";
+            shop.SetAddress = "SetAdress, st. SetAdress, 03";
+            shop.SetDescription = "SetDescription";
+            shop.SetTelephone = 333000;
+            shop.SetEmail = "setemail@set.email";
+            shop.GetAll();
+
+            //
+            Console.WriteLine("ОТДЕЛЬНЫЕ МЕТОДЫ GET: ");
+
+            shop.SetAll("Get", "Get, st. Get, 04", "testing Get", 444000, "get@get.get");
+
+            Console.WriteLine($"Название: {shop.GetName}");
+            Console.WriteLine($"Адрес: {shop.GetAddress}");
+            Console.WriteLine($"Описание: {shop.GetDescription}");
+            Console.WriteLine($"Номер телефона: {shop.GetTelephone}");
+            Console.WriteLine($"Электронная почта: {shop.GetEmail}");
+            Console.WriteLine();
         }
     }
 }
