@@ -354,11 +354,11 @@
         */
         class Shop
         {
-            private string name;
-            private string address;
-            private string description;
-            private int telephone;
-            private string email;
+            public string name { get; set; }
+            public string address { get; set; }
+            public string description { get; set; }
+            public int telephone { get; set; }
+            public string email { get; set; }
 
 
             public Shop() : this("new shop", "city, st. street, 00", "just new shop", 111000, "newshop@email.com") { }
@@ -382,29 +382,15 @@
                 this.email = email;
             }
 
-            public string SetName { set { this.name = value; } }
-            public string SetAddress { set { this.address = value; } }
-            public string SetDescription { set { this.description = value; } }
-            public int SetTelephone { set { this.telephone = value; } }
-            public string SetEmail { set { this.email = value; } }
-
-
-
             public void GetAll()
             {
-                Console.WriteLine($"Название: {this.GetName}");
-                Console.WriteLine($"Адрес: {this.GetAddress}");
-                Console.WriteLine($"Описание: {this.GetDescription}");
-                Console.WriteLine($"Номер телефона: {this.GetTelephone}");
-                Console.WriteLine($"Электронная почта: {this.GetEmail}");
+                Console.WriteLine($"Название: {this.name}");
+                Console.WriteLine($"Адрес: {this.address}");
+                Console.WriteLine($"Описание: {this.description}");
+                Console.WriteLine($"Номер телефона: {this.telephone}");
+                Console.WriteLine($"Электронная почта: {this.email}");
                 Console.WriteLine();
             }
-
-            public string GetName { get { return this.name; } }
-            public string GetAddress { get { return this.address; } }
-            public string GetDescription { get { return this.description; } }
-            public int GetTelephone { get { return this.telephone; } }
-            public string GetEmail { get { return this.email; } }
         }
 
 
@@ -516,11 +502,11 @@
             //
             Console.WriteLine($"ОТДЕЛЬНЫЕ МЕТОДЫ SET: ");
 
-            shop.SetName = "SetName";
-            shop.SetAddress = "SetAdress, st. SetAdress, 03";
-            shop.SetDescription = "SetDescription";
-            shop.SetTelephone = 333000;
-            shop.SetEmail = "setemail@set.email";
+            shop.name = "SetName";
+            shop.address = "SetAdress, st. SetAdress, 03";
+            shop.description = "SetDescription";
+            shop.telephone = 333000;
+            shop.email = "setemail@set.email";
             shop.GetAll();
 
             //
@@ -528,11 +514,11 @@
 
             shop.SetAll("Get", "Get, st. Get, 04", "testing Get", 444000, "get@get.get");
 
-            Console.WriteLine($"Название: {shop.GetName}");
-            Console.WriteLine($"Адрес: {shop.GetAddress}");
-            Console.WriteLine($"Описание: {shop.GetDescription}");
-            Console.WriteLine($"Номер телефона: {shop.GetTelephone}");
-            Console.WriteLine($"Электронная почта: {shop.GetEmail}");
+            Console.WriteLine($"Название: {shop.name}");
+            Console.WriteLine($"Адрес: {shop.address}");
+            Console.WriteLine($"Описание: {shop.description}");
+            Console.WriteLine($"Номер телефона: {shop.telephone}");
+            Console.WriteLine($"Электронная почта: {shop.email}");
             Console.WriteLine();
         }
     }
